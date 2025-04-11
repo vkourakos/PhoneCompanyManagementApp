@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<h1 class="mb-4">@ViewData["Title"]</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle w-100" type="button" id="clientsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Clients
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="clientsDropdown">
+                    <li><a class="dropdown-item" href="@Url.Action("Index", "Client")">Client Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-6">
+            <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle w-100" type="button" id="adminsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Admins
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="adminsDropdown">
+                    <li><a class="dropdown-item" href="@Url.Action("Index", "Admin")">Admin Dashboard</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("CreateSeller", "Admin")">Create Seller</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("CreateProgram", "Admin")">Create New Program</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-6">
+            <div class="dropdown">
+                <button class="btn btn-warning dropdown-toggle w-100" type="button" id="sellersDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Sellers
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="sellersDropdown">
+                    <li><a class="dropdown-item" href="@Url.Action("Index", "Seller")">Seller Dashboard</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("CreateClient", "Seller")">Create Client</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br /><hr /><br />

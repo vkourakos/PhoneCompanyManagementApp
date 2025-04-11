@@ -1,0 +1,30 @@
+﻿@using ErgasiaMVC.ViewModels.Seller
+@model ChangeProgramVm
+
+@{
+    ViewData["Title"] = "Change Program";
+}
+
+<h2>Change Program for @Model.PhoneNumber</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="ClientId" />
+
+    <div class="form-group">
+        <label asp-for="PhoneNumber">Phone Number</label>
+        <input type="text" class="form-control" asp-for="PhoneNumber" readonly />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CurrentProgram">Current Program</label>
+        <input type="text" class="form-control" asp-for="CurrentProgram" readonly />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NewProgram">New Program</label>
+        <select class="form-control" asp-for="NewProgram" asp-items="Model.Programs"></select>
+        <span class="text-danger" asp-validation-for="NewProgram"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Update Program</button>
+</form>

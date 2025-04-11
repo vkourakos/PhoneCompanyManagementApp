@@ -1,0 +1,36 @@
+﻿@using ErgasiaMVC.ViewModels.Admin
+@model EditProgramVm
+
+@{
+    ViewData["Title"] = "Edit Program";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+
+    <div class="form-group">
+        <label for="ProgramName">Program Name</label>
+        <input type="text" class="form-control" id="ProgramName" value="@Model.ProgramName" readonly />
+    </div>
+
+    <div class="form-group">
+        <label for="Benefits">Benefits</label>
+        <input type="text" class="form-control" id="Benefits" name="Benefits" value="@Model.Benefits" required />
+        @if (ViewData.ModelState["Benefits"]?.Errors.Count > 0)
+        {
+            <span class="text-danger">@ViewData.ModelState["Benefits"].Errors[0].ErrorMessage</span>
+        }
+    </div>
+
+    <div class="form-group">
+        <label for="Charge">Charge</label>
+        <input type="text" class="form-control" id="Charge" name="Charge" value="@Model.Charge" required step="0.01" />
+        @if (ViewData.ModelState["Charge"]?.Errors.Count > 0)
+        {
+            <span class="text-danger">@ViewData.ModelState["Charge"].Errors[0].ErrorMessage</span>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+</form>

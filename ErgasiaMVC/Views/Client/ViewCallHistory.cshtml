@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ErgasiaMVC.Models.Call>  
+
+@{
+    ViewData["Title"] = "Call History";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="mb-3">
+    <a href="@Url.Action("Index", "Client")" class="btn btn-secondary">Back to Dashboard</a>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Caller Number</th>
+            <th>Callee Number</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var call in Model)
+        {
+            <tr>
+                <td>@call.CallerNumber</td>
+                <td>@call.CalleeNumber</td>
+                <td>@call.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+﻿@using ErgasiaMVC.ViewModels.Admin
+@model CreateProgramVm
+
+@{
+    ViewData["Title"] = "Create Program";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="CreateProgram" method="post">
+
+    <div class="form-group">
+        <label asp-for="ProgramName" class="control-label"></label>
+        <input asp-for="ProgramName" class="form-control" />
+        <span asp-validation-for="ProgramName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Benefits" class="control-label"></label>
+        <textarea asp-for="Benefits" class="form-control"></textarea>
+        <span asp-validation-for="Benefits" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Charge" class="control-label"></label>
+        <input asp-for="Charge" class="form-control" />
+        <span asp-validation-for="Charge" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Program</button>
+</form>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>

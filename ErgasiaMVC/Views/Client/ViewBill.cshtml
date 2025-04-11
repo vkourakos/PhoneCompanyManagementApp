@@ -1,0 +1,23 @@
+﻿@using ErgasiaMVC.ViewModels.Client
+@model ViewBillVm
+
+@{
+    ViewData["Title"] = "View Bill";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="card">
+    <div class="card-header">
+        <h3>Bill Details</h3>
+    </div>
+    <div class="card-body">
+        <p><strong>Bill ID:</strong> @Model.Id</p>
+        <p><strong>Phone Number:</strong> @Model.PhoneNumber</p>
+        <p><strong>Costs:</strong> @Model.Costs.ToString("C")</p>
+        <p><strong>Status:</strong> @Model.Status.ToString()</p>
+        <p><strong>Program Name:</strong> @Model.ProgramName</p>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-primary mt-3">Back to Dashboard</a>

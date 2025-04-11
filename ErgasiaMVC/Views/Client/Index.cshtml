@@ -1,0 +1,59 @@
+﻿@using ErgasiaMVC.Models.Enums
+@using ErgasiaMVC.ViewModels.Client
+@model ClientIndexVm
+
+@{
+    ViewData["Title"] = "Client Dashboard";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- TempData Alert -->
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<!-- View Call History Button -->
+<a asp-action="ViewCallHistory" asp-route-phoneNumber="@Model.PhoneNumber" class="btn btn-primary mb-3">View Call History</a>
+
+<!-- Bills Table -->
+<h3>Bills</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Bill ID</th>
+            <th>Phone Number</th>
+            <th>Costs</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bill in Model.Bills)
+        {
+            <tr>
+                <td>@bill.Id</td>
+                <td>@bill.PhoneNumber</td>
+                <td>@bill.Costs.ToString("C")</td>
+                <td>@bill.Status</td>
+                <td>
+                    <a asp-action="ViewBill" asp-route-id="@bill.Id" class="btn btn-sm btn-info">View Bill</a>
+                    @if (bill.Status == BillStatus.Issued)
+                    {
+                        <form method="post" asp-action="PayBill" asp-route-billId="@bill.Id" style="display:inline;">
+                            <button type="submit" class="btn btn-success">Pay Bill</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span class="text-success">Paid</span>
+                    }
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
